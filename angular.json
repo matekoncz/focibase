@@ -90,6 +90,23 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "version": 2
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "foci-ng:build:production",
+              "serveTarget": "foci-ng:serve:production"
+            },
+            "development": {
+              "buildTarget": "foci-ng:build:development",
+              "serveTarget": "foci-ng:serve:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }

@@ -1,6 +1,6 @@
 import { Player } from "./player";
 
 export interface Team{
-    name: String,
+    name: string,
     players: Player[]
 }

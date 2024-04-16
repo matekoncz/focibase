@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "foci-ng": {
+      "hosting": {
+        "foci-ng": [
+          "foci-ng"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "foci-ng"
+  }
+}

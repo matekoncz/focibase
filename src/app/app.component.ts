@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import {MatToolbar, MatToolbarModule} from '@angular/material/toolbar';
-import { FormGroup, FormArray } from '@angular/forms';
+import {MatToolbar} from '@angular/material/toolbar';
+import { AuthService } from './shared_services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -12,5 +12,13 @@ import { FormGroup, FormArray } from '@angular/forms';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
+
+  constructor(private authservice: AuthService){
+    
+  }
+
+ matelogin() {
+    this.authservice.login("cc","aabb")
+  }
   title = 'foci-ng';
 }

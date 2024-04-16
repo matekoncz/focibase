@@ -1,5 +1,5 @@
 export interface Player{
-    name: String,
+    name: string,
     born: Number,
     shirtNum: Number,
 }
