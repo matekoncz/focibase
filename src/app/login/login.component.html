@@ -1,0 +1,9 @@
+<form [formGroup]="form">
+<p>Email:</p>
+<input type="text" formControlName="emailControl" />
+<p>Password:</p>
+<input type="password" formControlName="passwordControl"/>
+<br/>
+<button mat-button (click)="loginuser()">Log in</button>
+</form>
+<p class="errors">{{this.errors}}</p>

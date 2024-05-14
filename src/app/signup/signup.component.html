@@ -1,0 +1,11 @@
+<form [formGroup]="form">
+    <p>Email:</p>
+    <input type="text" formControlName="emailControl" />
+    <p>Password:</p>
+    <input type="password" formControlName="passwordControl"/>
+    <p>Confirm password:</p>
+    <input type="password" formControlName="confirmControl"/>
+    <br/>
+    <button mat-button (click)="signupuser()">Sign up</button>
+    </form>
+    <p class="errors">{{this.errors}}</p>
