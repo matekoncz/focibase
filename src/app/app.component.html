@@ -3,7 +3,7 @@
   <button mat-button [matMenuTriggerFor]="menu">Authentication</button>
   <mat-menu #menu="matMenu">
     <ng-template [ngIf]="isLoggedIn()" [ngIfElse]="nouser">
-      <button mat-menu-item>Sign out</button>
+      <button mat-menu-item (click)="signout()">Sign out</button>
     </ng-template>
     <ng-template #nouser>
       <button mat-menu-item (click)="login()">Log in</button>
@@ -11,5 +11,9 @@
     </ng-template>
   </mat-menu>
   <span *ngIf="isLoggedIn()">{{this.getCurrentUser()!.email}}</span>
+  <button  mat-button (click)="manager()">
+    <mat-icon>home</mat-icon>
+    To matchManager
+  </button>
 </mat-toolbar>
 <router-outlet></router-outlet>

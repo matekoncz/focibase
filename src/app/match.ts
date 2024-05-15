@@ -4,6 +4,6 @@ import { Team } from "./team";
 export interface Match{
     home: Team,
     away: Team,
-    events: MatchEVent[],
-    date: Number
+    date: String,
+    user: string
 }

@@ -1,5 +1,6 @@
 export interface Stadium{
     city: string,
     name: string,
-    size: Number
+    size: Number,
+    user: string
 }

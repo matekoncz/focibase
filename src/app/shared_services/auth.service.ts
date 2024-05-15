@@ -6,10 +6,9 @@ import { User, signInWithEmailAndPassword , createUserWithEmailAndPassword} from
   providedIn: 'root'
 })
 export class AuthService {
-  loaded_user:User|null
+
 
   constructor(private auth: Auth) {
-      this.loaded_user=this.auth.currentUser
    }
 
    async login(email: string, password: string){
@@ -20,7 +19,12 @@ export class AuthService {
       return createUserWithEmailAndPassword(this.auth,email,password)
    }
 
+   async signout(){
+      await this.auth.signOut();
+      console.log("signing out")
+   }
+
    getCurrentUser():User|null{
-    return this.loaded_user
+    return this.auth.currentUser
    }
 }
