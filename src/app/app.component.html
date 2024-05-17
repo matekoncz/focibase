@@ -1,17 +1,17 @@
 <mat-toolbar>
-  <span (click)="home()">{{"Focibase" | uppercase}}</span>
+  <span [routerLink]="['']">{{"Focibase" | uppercase}}</span>
   <button mat-button [matMenuTriggerFor]="menu">Authentication</button>
   <mat-menu #menu="matMenu">
-    <ng-template [ngIf]="isLoggedIn()" [ngIfElse]="nouser">
+    <ng-template [ngIf]="isLoggedIn" [ngIfElse]="nouser">
       <button mat-menu-item (click)="signout()">Sign out</button>
     </ng-template>
     <ng-template #nouser>
-      <button mat-menu-item (click)="login()">Log in</button>
-      <button mat-menu-item (click)="signup()">Sign up</button>
+      <button mat-menu-item [routerLink]="['/login']">Log in</button>
+      <button mat-menu-item [routerLink]="['/signup']">Sign up</button>
     </ng-template>
   </mat-menu>
-  <span *ngIf="isLoggedIn()">{{this.getCurrentUser()!.email}}</span>
-  <button  mat-button (click)="manager()">
+  <span *ngIf="isLoggedIn"><p>logged in as: {{user?.email}}</p></span>
+  <button  mat-button [routerLink]="['/manager']">
     <mat-icon>home</mat-icon>
     To matchManager
   </button>

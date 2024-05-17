@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import {Auth} from '@angular/fire/auth'
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { User, signInWithEmailAndPassword , createUserWithEmailAndPassword} from 'firebase/auth';
+import { from } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,23 +9,26 @@ import { User, signInWithEmailAndPassword , createUserWithEmailAndPassword} from
 export class AuthService {
 
 
-  constructor(private auth: Auth) {
+  constructor(private auth: AngularFireAuth) {
    }
 
    async login(email: string, password: string){
-      return signInWithEmailAndPassword(this.auth,email,password)
+      return from(this.auth.signInWithEmailAndPassword(email,password))
    }
 
-   async signup(email: string, password: string){
-      return createUserWithEmailAndPassword(this.auth,email,password)
+   signup(email: string, password: string){
+      return from(this.auth.createUserWithEmailAndPassword(email,password))
    }
 
-   async signout(){
-      await this.auth.signOut();
-      console.log("signing out")
+   signout(){
+      return from(this.auth.signOut())
    }
 
-   getCurrentUser():User|null{
-    return this.auth.currentUser
+   getCurrentUser(){
+    return from(this.auth.user)
+   }
+
+   getCurrentEmail(){
+      return this.auth.currentUser.then((user)=>{return user?.email});
    }
 }

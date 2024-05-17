@@ -47,7 +47,7 @@ export class SignupComponent {
       this.errors="";
       try{
         console.log("attempting signup: "+this.form.get("emailControl")?.value+" "+this.form.get("passwordControl")?.value)
-        const usercredential: UserCredential = await this.authservice.signup(this.form.get("emailControl")?.value,this.form.get("passwordControl")?.value)
+        await this.authservice.signup(this.form.get("emailControl")?.value,this.form.get("passwordControl")?.value)
       } catch(err){
         this.errors="Failed to sign up"
       }

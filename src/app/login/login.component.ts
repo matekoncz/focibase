@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
       this.errors="";
       try{
         console.log("attempting")
-        const usercredential: UserCredential = await this.authservice.login(this.form.get("emailControl")?.value,this.form.get("passwordControl")?.value)
+        await this.authservice.login(this.form.get("emailControl")?.value,this.form.get("passwordControl")?.value)
       } catch(err){
         this.errors="Failed to log in"
       }
