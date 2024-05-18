@@ -100,7 +100,7 @@ where, order by
 
 ## AuthGuards
 
-- auth.guardts
+- auth.guard.ts
 
 felhaszálva:
 
