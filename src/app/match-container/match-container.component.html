@@ -1,0 +1,24 @@
+<mat-card>
+    <mat-card-header>
+        <b>{{match.home}} vs {{match.away}}</b>
+    </mat-card-header>
+    <mat-card-content *ngIf="!editmode; else edit">
+        <p>at {{match.location}}</p>
+        <p>{{datestring}}</p>
+    </mat-card-content>
+    <ng-template #edit>
+        <mat-form-field>
+            <mat-label>Select the location</mat-label>
+            <mat-select [(ngModel)]="match.location">
+                <mat-option *ngFor="let stadium of availableStadiums" [value]="stadium.name">{{stadium.name}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <br>
+        <p>{{datestring}}</p>
+    </ng-template>
+    <mat-card-footer>
+        <button mat-button (click)="changeMode()"><mat-icon>edit location</mat-icon>edit</button>
+        <button mat-button (click)="update()"><mat-icon>save</mat-icon>save changes</button>
+        <button mat-button (click)="delete()"><mat-icon>delete</mat-icon>delete</button>
+    </mat-card-footer>
+</mat-card>

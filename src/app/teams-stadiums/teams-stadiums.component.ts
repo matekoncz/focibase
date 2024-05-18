@@ -60,6 +60,9 @@ export class TeamsStadiumsComponent implements OnInit, OnDestroy{
   public stadiumList: Stadium[] = []
 
   makeTeam(){
+    if(this.teamname==""){
+      return
+    }
     this.authservice.getCurrentUser().subscribe((user)=>{
       let username = user?.email
       let team: Team = {
@@ -75,6 +78,9 @@ export class TeamsStadiumsComponent implements OnInit, OnDestroy{
   }
 
   makeStadium(){
+    if(this.stadiumName=="" || this.stadiumLocation == ""){
+      return
+    }
       let username = this.username
       let stadium: Stadium = {
         name: this.stadiumName,

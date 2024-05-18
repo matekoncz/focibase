@@ -1,0 +1,50 @@
+<mat-card>
+    <mat-card-header>
+        Create a match
+    </mat-card-header>
+    <mat-card-content>
+        <mat-form-field>
+            <mat-label>Select the home team</mat-label>
+            <mat-select [(ngModel)]="hometeam">
+                <mat-option *ngFor="let team of teamList" [value]="team.name">{{team.name}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <mat-label>Select the away team</mat-label>
+            <mat-select [(ngModel)]="awayteam">
+                <mat-option *ngFor="let team of teamList" [value]="team.name">{{team.name}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <mat-label>Select the location</mat-label>
+            <mat-select [(ngModel)]="stadium">
+                <mat-option *ngFor="let stadium of stadiumList" [value]="stadium.name">{{stadium.name}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <mat-label>Choose a date</mat-label>
+            <input matInput [(ngModel)]="date" [matDatepicker]="datepicker">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="datepicker"></mat-datepicker-toggle>
+            <mat-datepicker #datepicker>
+              <mat-datepicker-actions>
+                <button mat-button matDatepickerCancel>Cancel</button>
+                <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+              </mat-datepicker-actions>
+            </mat-datepicker>
+          </mat-form-field>
+    </mat-card-content>
+    <mat-card-footer>
+        <button mat-button (click)="makeMatch()">
+            Send
+        <mat-icon >backup</mat-icon>
+        </button>
+    </mat-card-footer>
+</mat-card>
+<h3>stored matches</h3>
+    <div *ngFor="let storedmatch of matchesList">
+        <app-match-container [match]="storedmatch" [availableTeams]="teamList" [availableStadiums]="stadiumList" [editable]="true" (deleteEvent)="deleteMatch($any($event))" (updateEvent)="updateMatch($any($event))"></app-match-container>
+    </div>
