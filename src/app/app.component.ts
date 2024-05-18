@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import {MatToolbar} from '@angular/material/toolbar';
@@ -7,7 +7,6 @@ import { MatButtonModule} from '@angular/material/button';
 import { AuthService } from './shared_services/auth.service';
 import { RouterModule, Router } from '@angular/router';
 import {MatIconModule} from '@angular/material/icon';
-import { User } from 'firebase/auth';
 import { RouterLink } from '@angular/router';
 
 @Component({

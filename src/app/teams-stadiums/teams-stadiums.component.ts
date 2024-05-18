@@ -9,7 +9,6 @@ import { DataService } from '../shared_services/data.service';
 import { Team } from '../team';
 import { AuthService } from '../shared_services/auth.service';
 import { FormsModule } from '@angular/forms';
-import { User } from 'firebase/auth';
 import {MatListModule} from '@angular/material/list';
 import { NgFor } from '@angular/common';
 import { Subscription } from 'rxjs';

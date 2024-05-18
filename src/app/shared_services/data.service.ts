@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import "firebase/firestore";
 import { Team } from '../team';
 import {AngularFirestore} from '@angular/fire/compat/firestore'
-import {from, map, Observable, Subject} from 'rxjs'
+import {from, Subject} from 'rxjs'
 import { Stadium } from '../stadium';
 import { Player } from '../player';
 import { Match } from '../match';

@@ -5,7 +5,6 @@ import { AuthService } from '../shared_services/auth.service';
 import { DataService } from '../shared_services/data.service';
 import { Team } from '../team';
 import { Subscription } from 'rxjs';
-import { Player } from '../player';
 import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';

@@ -1,10 +1,6 @@
 
-import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
-import { AuthService } from '../shared_services/auth.service';
-import { DataService } from '../shared_services/data.service';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Team } from '../team';
-import { Subscription } from 'rxjs';
-import { Player } from '../player';
 import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -19,12 +15,11 @@ import { Match } from '../match';
 import { Stadium } from '../stadium';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {provideNativeDateAdapter} from '@angular/material/core';
-import { Timestamp } from 'firebase/firestore';
 @Component({
   selector: 'app-match-container',
   standalone: true,
   providers: [provideNativeDateAdapter()],
-  imports: [MatListModule,MatIconModule,MatCardModule,FormsModule,MatFormFieldModule,NgFor,MatButtonModule,MatInputModule,MatSelectModule, CommonModule,playerPipe,MatDatepickerModule] ,
+  imports: [MatIconModule,MatCardModule,FormsModule,MatFormFieldModule,NgFor,MatButtonModule,MatInputModule,MatSelectModule, CommonModule,playerPipe,MatDatepickerModule] ,
   templateUrl: './match-container.component.html',
   styleUrl: './match-container.component.css'
 })

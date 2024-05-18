@@ -1,6 +1,7 @@
 {
   "hosting": [
     {
+      "target": "foci-ng",
       "public": "dist/foci-ng/browser",
       "ignore": [
         "firebase.json",
