@@ -1,27 +1,107 @@
-# FociNg
+# Focibase
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.3.
+Az alábbiakban a javítás szempontjából releváns információkat rögzítem.
 
-## Development server
+## Adatmodellek
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+file-ok:
 
-## Code scaffolding
+- player.ts, match.ts, stadium.ts, team.ts
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+felhasználásuk kollekciókkal:
 
-## Build
+- data.service.ts: 88, 92, 96, 100
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Attribútum direktívák
 
-## Running unit tests
+fajták:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- routerLink, value (+ matMenuTriggerFor, matDatepicker)
 
-## Running end-to-end tests
+helyük:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+- app.component.html: 3, match.container.component.html: 13
 
-## Further help
+## Strukturális direktívák
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+fajták:
+
+- ngIf, ngFor
+
+helyük:
+
+- app.component.html: 18, match-container.component.html: 13
+
+## Input, Output szülő és gyerek között
+
+- match-container.component.ts 39, 48
+
+## Material elemek
+
+fajták:
+
+- mat-icon, mat-button, mat-card, mat-toolbar, mat-menu, mat-formField, mat-label, mat-divider, mat-hint, mat-list, mat-select
+
+helyük:
+
+- app.component.html, teams-stadiums.component.html, players.component.html
+
+## Angular formok
+
+- signup.component.ts, login.component.ts
+
+illetve ezek html template-jeiben (signup.component.html, login.component.html)
+
+## Saját pipe
+
+- player-pipe.ts
+
+felhasználva:
+
+- players.component.html:3
+
+## Lifecicyle hookok:
+
+Subjectre fel- és leiratkozásra:
+
+- OnInit, OnDestroy
+
+helyük:
+
+- matches.component.ts: 36, 42
+
+players.component-ben, teams-stadiums.component-ben szintén
+
+## CRUD műveletek
+
+matches kollekció elemein teljes CRUD, többin csak create, read
+
+- data.service.ts: 79, 99, 103, 107
+
+## Firestore, körnezeti változók
+
+Környezeti változók:
+
+- environment.ts
+
+Firestore használata:
+
+- data.service.ts
+
+## Komplex lekérdezések
+
+where, order by
+
+- data.service.ts: 88, 96
+
+## Routing 
+
+- app.routes.ts
+
+## AuthGuards
+
+- auth.guardts
+
+felhaszálva:
+
+- app.routes.ts
