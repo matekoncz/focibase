@@ -5,6 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { AuthService } from '../shared_services/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -17,7 +18,7 @@ export class SignupComponent {
   form!: FormGroup;
   errors=""
 
-  constructor(private authservice: AuthService,private formbuilder: FormBuilder ){
+  constructor(private authservice: AuthService,private formbuilder: FormBuilder, private router: Router){
 
   }
 
@@ -29,7 +30,7 @@ export class SignupComponent {
     })
   }
 
-  async signupuser(){
+  signupuser(){
     if(this.form.invalid){
       if(this.form.controls['emailControl'].invalid){
         this.errors="invalid email format"
@@ -44,12 +45,15 @@ export class SignupComponent {
       }
     } else {
       this.errors="";
-      try{
         console.log("attempting signup: "+this.form.get("emailControl")?.value+" "+this.form.get("passwordControl")?.value)
-        await this.authservice.signup(this.form.get("emailControl")?.value,this.form.get("passwordControl")?.value)
-      } catch(err){
-        this.errors="Failed to sign up"
-      }
+        this.authservice.signup(this.form.get("emailControl")?.value,this.form.get("passwordControl")?.value).subscribe({
+          next: ()=>{
+            this.router.navigate(['/login'])
+          },
+          error: ()=>{
+            this.errors="Failed to sign up"
+          }
+        })
       
     }
   }

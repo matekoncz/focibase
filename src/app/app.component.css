@@ -1,0 +1,17 @@
+mat-toolbar{
+    margin-top: 0;
+    height: auto;
+}
+#menuflex{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#user{
+    font-weight: lighter;
+    font-size: small;
+    vertical-align:middle;
+    margin-top: auto;
+}

@@ -32,6 +32,9 @@ export class PlayersComponent implements OnInit, OnDestroy{
 
   ngOnInit(): void {
     this.authservice.getCurrentUser().subscribe((user)=>{
+      if(user==null){
+        return
+      }
       this.username=user!.email!
       this.teamsSubscription=  this.dataservice.getLoadTeamSub().subscribe((teams)=>{
         this.teamList=teams;

@@ -58,8 +58,8 @@
     </mat-card>
     <h3>stored stadiums</h3>
     <mat-list role=list>
-        <mat-list-item *ngFor="let stadium of stadiumList">
-            <b>{{stadium.name}}</b> ({{stadium.city}}) : {{stadium.size}}
+        <mat-list-item class="nopadding" *ngFor="let stadium of stadiumList">
+            <p class="stadiums"><b>{{stadium.name}}</b> ({{stadium.city}}) : {{stadium.size}}</p>
         </mat-list-item>
     </mat-list>
 </span>

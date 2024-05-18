@@ -32,6 +32,7 @@
 <h3>stored players</h3>
 <mat-list role=list>
     <mat-list-item *ngFor="let player of playerList">
-        <p>{{player | playerPipe}}</p>
+        <p class="players">{{player | playerPipe}}</p>
+        <br>
     </mat-list-item>
 </mat-list>

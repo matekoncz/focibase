@@ -1,8 +1,22 @@
 #flex{
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 #left,#right{
-    width: 45%;
+    width: 400px;
+}
+
+.stadiums{
+    white-space: pre-wrap;
+    height: 60px;
+    margin-top: 0px;
+    
+    background-color: transparent;
+}
+
+.nopadding{
+    margin: 0px;
 }

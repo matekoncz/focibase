@@ -1,4 +1,5 @@
 <mat-toolbar>
+  <div id="menuflex">
   <span [routerLink]="['']">{{"Focibase" | uppercase}}</span>
   <button mat-button [matMenuTriggerFor]="menu">Authentication</button>
   <mat-menu #menu="matMenu">
@@ -10,10 +11,11 @@
       <button mat-menu-item [routerLink]="['/signup']">Sign up</button>
     </ng-template>
   </mat-menu>
-  <span *ngIf="isLoggedIn"><p>logged in as: {{user?.email}}</p></span>
   <button  mat-button [routerLink]="['/manager']">
     <mat-icon>home</mat-icon>
     To matchManager
   </button>
+  <span id="user" *ngIf="isLoggedIn">logged in as: {{user?.email}}</span>
+</div>
 </mat-toolbar>
 <router-outlet></router-outlet>
