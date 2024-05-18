@@ -4,6 +4,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { AuthService } from '../shared_services/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserCredential } from 'firebase/auth';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,7 @@ export class LoginComponent implements OnInit {
   form!: FormGroup;
   errors=""
 
-  constructor(private authservice: AuthService,private formbuilder: FormBuilder ){
+  constructor(private authservice: AuthService,private formbuilder: FormBuilder, private router: Router ){
 
   }
 
@@ -39,13 +40,16 @@ export class LoginComponent implements OnInit {
       }
     } else {
       this.errors="";
-      try{
         console.log("attempting")
-        await this.authservice.login(this.form.get("emailControl")?.value,this.form.get("passwordControl")?.value)
-      } catch(err){
-        this.errors="Failed to log in"
-      }
-      
+        this.authservice.login(this.form.get("emailControl")?.value,this.form.get("passwordControl")?.value).subscribe({
+          next: (usc)=>{
+            localStorage.setItem('currentuser','true')
+            this.router.navigate([''])
+            },
+          error: (error)=>{
+            this.errors="Failed to log in: "+error
+          }
+        })
     }
   }
 }

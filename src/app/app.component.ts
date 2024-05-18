@@ -45,6 +45,7 @@ export class AppComponent implements AfterViewInit{
   signout(){
     this.authservice.signout().subscribe(()=>{
       this.checkLogin()
+      this.router.navigate([''])
     })
   }
 
@@ -64,6 +65,7 @@ export class AppComponent implements AfterViewInit{
       } else {
         this.isLoggedIn=false
         this.user=null
+        localStorage.removeItem('currentuser')
       }
     })
   }

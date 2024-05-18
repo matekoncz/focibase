@@ -11,7 +11,7 @@ export class AuthService {
   constructor(private auth: AngularFireAuth) {
    }
 
-   async login(email: string, password: string){
+   login(email: string, password: string){
       return from(this.auth.signInWithEmailAndPassword(email,password))
    }
 
